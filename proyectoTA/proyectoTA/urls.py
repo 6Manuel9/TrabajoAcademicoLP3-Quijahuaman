@@ -25,5 +25,5 @@ urlpatterns = [
     path("rango/", views.rango, name="rango"),
     path("rango2/", views.rango2, name="rango2"),
     path("rango2/<int:a>", views.rango2, name="rango2"),
-    path("rango2/<int:a><int:b>", views.rango2, name="rango2"),
+    path("rango2/<int:a>/<int:b>", views.rango2, name="rango2"),
 ]

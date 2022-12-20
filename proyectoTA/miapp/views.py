@@ -40,10 +40,11 @@ def rango(request):
         resultado += f"<li>{a}</li>"
         a+=1
     resultado += "</ul"
-    return render(request,'rango.html')
+    return render(request,'rango.html',{'resultado':resultado})
 
 def rango2(request,a=0,b=100):
-    
+    if a>b:
+        return redirect('rango2', a=b, b=a)
     resultado =f"""
         <h2>Numeros de [{a},{b}]</h2>
         Resultado: <br>
@@ -52,5 +53,5 @@ def rango2(request,a=0,b=100):
     while a<=b:
         resultado += f"<li>{a}</li>"
         a+=1
-    resultado += "</ul"
-    return render(request,'rango2.html')
+    """return HttpResponse(layout+resultado)"""
+    return render(request,'rango2.html',{'resultado':resultado})
